@@ -31,7 +31,8 @@ STRIDE = 16_000
 BATCH_SIZE = 64
 NUM_WORKERS = 0
 
-MAX_EPOCHS = 250
+# 为验证流程，先跑 1 个 epoch；需要完整训练可改回 250
+MAX_EPOCHS = 1
 ACCELERATOR = "auto"  # cpu/gpu/auto
 
 LEARNING_RATE = 5e-4
@@ -198,8 +199,6 @@ class WindowedEmgDataset(Dataset):
         if self.emg_augmentation is not None:
             datum["emg"] = self.emg_augmentation(datum["emg"])
 
-        datum["timestamps"] = timeseries["time"].copy()
-        datum["prompts"] = self.emg_recording.prompts
         return datum
 
 
@@ -220,6 +219,10 @@ def make_dataset(
         if partitions is None:
             partitions = [(-np.inf, np.inf)]
 
+        dataset_path = get_full_dataset_path(data_location, dataset)
+        if not dataset_path.exists():
+            continue
+
         for start, end in partitions:
             if window_length is not None:
                 partition_samples = (end - start) * EMG_SAMPLE_RATE
@@ -228,7 +231,7 @@ def make_dataset(
 
             datasets.append(
                 WindowedEmgDataset(
-                    get_full_dataset_path(data_location, dataset),
+                    dataset_path,
                     start=start,
                     end=end,
                     transform=transform,
@@ -453,6 +456,25 @@ class FingerStateMaskGenerator(nn.Module):
 
 def build_dataloaders() -> tuple[DataLoader, DataLoader, DataLoader]:
     data_split = DataSplit.from_csv(CSV_FILENAME, pool_test_partitions=True)
+
+    existing = {p.name for p in Path(DATA_LOCATION).glob("*.hdf5")}
+    if existing:
+        data_split.train = {k: v for k, v in data_split.train.items() if k in existing}
+        data_split.val = {k: v for k, v in data_split.val.items() if k in existing}
+        data_split.test = {k: v for k, v in data_split.test.items() if k in existing}
+
+    if not data_split.train:
+        available = sorted([n for n in existing if n.startswith("discrete_gestures_")])
+        if not available:
+            raise RuntimeError("No discrete_gestures .hdf5 files found in data_location")
+
+        train_name = available[0]
+        val_name = available[1] if len(available) > 1 else available[0]
+        test_name = available[2] if len(available) > 2 else available[0]
+
+        data_split.train = {train_name: None}
+        data_split.val = {val_name: None}
+        data_split.test = {test_name: None}
 
     transform = DiscreteGesturesTransform(pulse_window=PULSE_WINDOW)
     augmentation = RotationAugmentation(rotation=ROTATION_AUG)
