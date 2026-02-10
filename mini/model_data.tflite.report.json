@@ -1,0 +1,3027 @@
+{
+  "model_version": 3,
+  "subgraphs": 1,
+  "operator_codes": 16,
+  "inputs": [
+    {
+      "idx": 0,
+      "name": "serving_default_args_0:0",
+      "shape": [
+        1,
+        16,
+        32
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    },
+    {
+      "idx": 1,
+      "name": "serving_default_args_1:0",
+      "shape": [
+        2,
+        1,
+        32
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    }
+  ],
+  "outputs": [
+    {
+      "idx": 87,
+      "name": "StatefulPartitionedCall:1",
+      "shape": [
+        2,
+        1,
+        32
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    },
+    {
+      "idx": 103,
+      "name": "StatefulPartitionedCall:0",
+      "shape": [
+        1,
+        9,
+        1
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    }
+  ],
+  "operator_counts": {
+    "MUL": 11,
+    "ABS": 1,
+    "ADD": 10,
+    "DIV": 1,
+    "RESHAPE": 15,
+    "TRANSPOSE": 1,
+    "CONV_2D": 1,
+    "MEAN": 4,
+    "SQUARED_DIFFERENCE": 2,
+    "RSQRT": 2,
+    "SUB": 2,
+    "SLICE": 2,
+    "FULLY_CONNECTED": 7,
+    "LOGISTIC": 4,
+    "TANH": 2,
+    "CONCATENATION": 1
+  },
+  "operator_total": 66,
+  "tensor_total": 104,
+  "operators": [
+    {
+      "index": 0,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 0,
+          "name": "serving_default_args_0:0",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 37,
+          "name": "arith.constant35",
+          "shape": [],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 38,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "op": {
+        "builtin": "ABS",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 0,
+          "name": "serving_default_args_0:0",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 39,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;1",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 39,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;1",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 36,
+          "name": "arith.constant34",
+          "shape": [],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 40,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;2",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "op": {
+        "builtin": "DIV",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 38,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 40,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;2",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 41,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;3",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 41,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.networks.ReinhardCompression_compression;3",
+          "shape": [
+            1,
+            16,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 20,
+          "name": "arith.constant18",
+          "shape": [
+            4
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 42,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;",
+          "shape": [
+            1,
+            16,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "op": {
+        "builtin": "TRANSPOSE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 42,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;",
+          "shape": [
+            1,
+            16,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 30,
+          "name": "arith.constant28",
+          "shape": [
+            4
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 43,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;1",
+          "shape": [
+            1,
+            32,
+            1,
+            16
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "op": {
+        "builtin": "CONV_2D",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 43,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;1",
+          "shape": [
+            1,
+            32,
+            1,
+            16
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 19,
+          "name": "arith.constant17",
+          "shape": [
+            32,
+            32,
+            1,
+            16
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 32,
+          "name": "arith.constant30",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 44,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;2",
+          "shape": [
+            1,
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 44,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;2",
+          "shape": [
+            1,
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 18,
+          "name": "arith.constant16",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 45,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;3",
+          "shape": [
+            1,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 45,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;3",
+          "shape": [
+            1,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 25,
+          "name": "arith.constant23",
+          "shape": [
+            1,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 46,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.activation.ReLU_relu;;__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;",
+          "shape": [
+            1,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 46,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.activation.ReLU_relu;;__main__.StatefulWrapper/torch.nn.modules.conv.Conv1d_conv_layer;",
+          "shape": [
+            1,
+            32,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 29,
+          "name": "arith.constant27",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 47,
+          "name": "__main__.StatefulWrapper;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "op": {
+        "builtin": "MEAN",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 47,
+          "name": "__main__.StatefulWrapper;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 35,
+          "name": "arith.constant33",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 48,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 48,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 49,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;1",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "op": {
+        "builtin": "SQUARED_DIFFERENCE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 47,
+          "name": "__main__.StatefulWrapper;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 49,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;1",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 50,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;2",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "op": {
+        "builtin": "MEAN",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 50,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;2",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 35,
+          "name": "arith.constant33",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 51,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;3",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 51,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;3",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 34,
+          "name": "arith.constant32",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 52,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;4",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "op": {
+        "builtin": "RSQRT",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 52,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;4",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 53,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 53,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 48,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 54,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;6",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "op": {
+        "builtin": "SUB",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 33,
+          "name": "arith.constant31",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 54,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;6",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 55,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;7",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 53,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 56,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;8",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 47,
+          "name": "__main__.StatefulWrapper;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 56,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;8",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 57,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;9",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 55,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;7",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 58,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;10",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 57,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;9",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 58,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;10",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 59,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;11",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 59,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;11",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 24,
+          "name": "arith.constant22",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 60,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;12",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 60,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;12",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 23,
+          "name": "arith.constant21",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 61,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "op": {
+        "builtin": "SLICE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 1,
+          "name": "serving_default_args_1:0",
+          "shape": [
+            2,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 17,
+          "name": "arith.constant15",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 29,
+          "name": "arith.constant27",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 62,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "op": {
+        "builtin": "SLICE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 1,
+          "name": "serving_default_args_1:0",
+          "shape": [
+            2,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 16,
+          "name": "arith.constant14",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 29,
+          "name": "arith.constant27",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 63,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 61,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 15,
+          "name": "arith.constant13",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 8,
+          "name": "arith.constant6",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 64,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "op": {
+        "builtin": "LOGISTIC",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 64,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 65,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 61,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 14,
+          "name": "arith.constant12",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 7,
+          "name": "arith.constant5",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 66,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "op": {
+        "builtin": "LOGISTIC",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 66,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 67,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 67,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 29,
+          "name": "arith.constant27",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 68,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 61,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_conv_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 13,
+          "name": "arith.constant11",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 6,
+          "name": "arith.constant4",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 69,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "op": {
+        "builtin": "TANH",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 69,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 70,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 65,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 62,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 71,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 68,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_i;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 70,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 72,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 71,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 72,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 73,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 73,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 27,
+          "name": "arith.constant25",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 74,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;1",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 73,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 12,
+          "name": "arith.constant10",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 5,
+          "name": "arith.constant3",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 75,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "op": {
+        "builtin": "LOGISTIC",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 75,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 76,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 73,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 11,
+          "name": "arith.constant9",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 4,
+          "name": "arith.constant2",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 77,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "op": {
+        "builtin": "LOGISTIC",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 77,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 78,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 78,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 29,
+          "name": "arith.constant27",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 79,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 73,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 10,
+          "name": "arith.constant8",
+          "shape": [
+            32,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 3,
+          "name": "arith.constant1",
+          "shape": [
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 80,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "op": {
+        "builtin": "TANH",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 80,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 81,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 76,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 63,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 82,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 79,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_i;1",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 81,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 83,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 82,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_f;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 83,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1/torch.nn.modules.linear.Linear_linear_c;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 84,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 84,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 27,
+          "name": "arith.constant25",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 85,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;1",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "op": {
+        "builtin": "CONCATENATION",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 74,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_0;1",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 85,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;1",
+          "shape": [
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 86,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;2",
+          "shape": [
+            2,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 86,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;2",
+          "shape": [
+            2,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 28,
+          "name": "arith.constant26",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 87,
+          "name": "StatefulPartitionedCall:1",
+          "shape": [
+            2,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "op": {
+        "builtin": "MEAN",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 84,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 35,
+          "name": "arith.constant33",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 88,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 88,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 89,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;1",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "op": {
+        "builtin": "SQUARED_DIFFERENCE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 84,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 89,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;1",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 90,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;2",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "op": {
+        "builtin": "MEAN",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 90,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;2",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 35,
+          "name": "arith.constant33",
+          "shape": [
+            2
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 91,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;3",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 91,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;3",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 34,
+          "name": "arith.constant32",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 92,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;4",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "op": {
+        "builtin": "RSQRT",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 92,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;4",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 93,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 93,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 88,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 94,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;6",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "op": {
+        "builtin": "SUB",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 33,
+          "name": "arith.constant31",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 94,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;6",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 95,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;7",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 93,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;5",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 96,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;8",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 84,
+          "name": "__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;;__main__.StatefulWrapper/generic_neuromotor_interface.min_models.MinLSTM_rnn/generic_neuromotor_interface.min_models.MinLSTMLayer_1;",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 96,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;8",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 97,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;9",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 95,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;7",
+          "shape": [
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 31,
+          "name": "arith.constant29",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 98,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;10",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 97,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;9",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 98,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;10",
+          "shape": [
+            1,
+            1,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 99,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;11",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "op": {
+        "builtin": "MUL",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 99,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;11",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 22,
+          "name": "arith.constant20",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 100,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;12",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "op": {
+        "builtin": "ADD",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 100,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;12",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 21,
+          "name": "arith.constant19",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 101,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "op": {
+        "builtin": "FULLY_CONNECTED",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 101,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.normalization.LayerNorm_post_rnn_layer_norm;13",
+          "shape": [
+            1,
+            1,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 9,
+          "name": "arith.constant7",
+          "shape": [
+            9,
+            32
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 2,
+          "name": "arith.constant",
+          "shape": [
+            9
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 102,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.linear.Linear_projection;",
+          "shape": [
+            1,
+            1,
+            9
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "op": {
+        "builtin": "RESHAPE",
+        "custom": null
+      },
+      "inputs": [
+        {
+          "idx": 102,
+          "name": "__main__.StatefulWrapper/torch.nn.modules.linear.Linear_projection;",
+          "shape": [
+            1,
+            1,
+            9
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        },
+        {
+          "idx": 26,
+          "name": "arith.constant24",
+          "shape": [
+            3
+          ],
+          "type": "INT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ],
+      "outputs": [
+        {
+          "idx": 103,
+          "name": "StatefulPartitionedCall:0",
+          "shape": [
+            1,
+            9,
+            1
+          ],
+          "type": "FLOAT32",
+          "quant_scale": [],
+          "quant_zero": []
+        }
+      ]
+    }
+  ]
+}
