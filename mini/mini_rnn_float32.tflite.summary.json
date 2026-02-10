@@ -1,0 +1,1377 @@
+{
+  "model_version": 3,
+  "subgraphs": 1,
+  "operator_total": 208,
+  "tensor_total": 280,
+  "inputs": [
+    {
+      "idx": 0,
+      "name": "serving_default_0_emg_combined:0",
+      "shape": [
+        1,
+        50,
+        32
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    },
+    {
+      "idx": 1,
+      "name": "serving_default_1_state_input:0",
+      "shape": [
+        1,
+        128
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    }
+  ],
+  "outputs": [
+    {
+      "idx": 277,
+      "name": "StatefulPartitionedCall_1:1",
+      "shape": [
+        1,
+        128
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    },
+    {
+      "idx": 279,
+      "name": "StatefulPartitionedCall_1:0",
+      "shape": [
+        1,
+        9
+      ],
+      "type": "FLOAT32",
+      "quant_scale": [],
+      "quant_zero": []
+    }
+  ],
+  "top_operator_types": [
+    [
+      "ADD",
+      43
+    ],
+    [
+      "MUL",
+      33
+    ],
+    [
+      "STRIDED_SLICE",
+      31
+    ],
+    [
+      "FULLY_CONNECTED",
+      21
+    ],
+    [
+      "LOGISTIC",
+      21
+    ],
+    [
+      "RESHAPE",
+      11
+    ],
+    [
+      "SPLIT",
+      10
+    ],
+    [
+      "SUB",
+      10
+    ],
+    [
+      "TANH",
+      10
+    ],
+    [
+      "CONV_2D",
+      5
+    ],
+    [
+      "PAD",
+      4
+    ],
+    [
+      "CONCATENATION",
+      2
+    ]
+  ],
+  "conv2d_ops": [
+    {
+      "index": 4,
+      "input": {
+        "idx": 45,
+        "name": "functional_1/average_pooling1d_1/AvgPool1D",
+        "shape": [
+          1,
+          1,
+          25,
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "filter": {
+        "idx": 23,
+        "name": "arith.constant21",
+        "shape": [
+          16,
+          1,
+          1,
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 6,
+        "name": "arith.constant4",
+        "shape": [
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 47,
+        "name": "functional_1/activation_1/Relu;functional_1/energy_conv_1/BiasAdd;functional_1/energy_conv_1/convolution/Squeeze;;functional_1/energy_conv_1/convolution",
+        "shape": [
+          1,
+          1,
+          25,
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 6,
+      "input": {
+        "idx": 46,
+        "name": "functional_1/spatial_conv_1/convolution/ExpandDims",
+        "shape": [
+          1,
+          1,
+          50,
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "filter": {
+        "idx": 22,
+        "name": "arith.constant20",
+        "shape": [
+          64,
+          1,
+          1,
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 5,
+        "name": "arith.constant3",
+        "shape": [
+          64
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 49,
+        "name": "functional_1/spatial_conv_1/Relu;functional_1/spatial_conv_1/BiasAdd;functional_1/spatial_conv_1/convolution/Squeeze;;functional_1/spatial_conv_1/convolution",
+        "shape": [
+          1,
+          1,
+          50,
+          64
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 10,
+      "input": {
+        "idx": 52,
+        "name": "convolution/ExpandDims",
+        "shape": [
+          1,
+          1,
+          52,
+          64
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "filter": {
+        "idx": 21,
+        "name": "arith.constant19",
+        "shape": [
+          16,
+          1,
+          3,
+          4
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 4,
+        "name": "arith.constant2",
+        "shape": [
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 53,
+        "name": "functional_1/p1_1/BiasAdd;convolution/Squeeze;;convolution",
+        "shape": [
+          1,
+          1,
+          25,
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 14,
+      "input": {
+        "idx": 56,
+        "name": "convolution/ExpandDims1",
+        "shape": [
+          1,
+          1,
+          60,
+          64
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "filter": {
+        "idx": 20,
+        "name": "arith.constant18",
+        "shape": [
+          32,
+          1,
+          11,
+          2
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 3,
+        "name": "arith.constant1",
+        "shape": [
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 57,
+        "name": "functional_1/p2_1/BiasAdd;convolution/Squeeze;;convolution",
+        "shape": [
+          1,
+          1,
+          25,
+          32
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 18,
+      "input": {
+        "idx": 60,
+        "name": "convolution/ExpandDims2",
+        "shape": [
+          1,
+          1,
+          70,
+          64
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "filter": {
+        "idx": 19,
+        "name": "arith.constant17",
+        "shape": [
+          16,
+          1,
+          21,
+          4
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 2,
+        "name": "arith.constant",
+        "shape": [
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 61,
+        "name": "functional_1/p3_1/BiasAdd;convolution/Squeeze;;convolution",
+        "shape": [
+          1,
+          1,
+          25,
+          16
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    }
+  ],
+  "fully_connected_ops": [
+    {
+      "index": 36,
+      "input": {
+        "idx": 78,
+        "name": "functional_1/gru_1/unstack",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 88,
+        "name": "functional_1/gru_1/gru_cell_1/MatMul;functional_1/gru_1/gru_cell_1/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 38,
+      "input": {
+        "idx": 83,
+        "name": "functional_1/gru_1/unstack5",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 92,
+        "name": "functional_1/gru_1/gru_cell_11/MatMul;functional_1/gru_1/gru_cell_11/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 40,
+      "input": {
+        "idx": 84,
+        "name": "functional_1/gru_1/unstack6",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 96,
+        "name": "functional_1/gru_1/gru_cell_13/MatMul;functional_1/gru_1/gru_cell_13/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 42,
+      "input": {
+        "idx": 85,
+        "name": "functional_1/gru_1/unstack7",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 100,
+        "name": "functional_1/gru_1/gru_cell_15/MatMul;functional_1/gru_1/gru_cell_15/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 44,
+      "input": {
+        "idx": 86,
+        "name": "functional_1/gru_1/unstack8",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 104,
+        "name": "functional_1/gru_1/gru_cell_17/MatMul;functional_1/gru_1/gru_cell_17/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 46,
+      "input": {
+        "idx": 87,
+        "name": "functional_1/gru_1/unstack9",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 108,
+        "name": "functional_1/gru_1/gru_cell_19/MatMul;functional_1/gru_1/gru_cell_19/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 48,
+      "input": {
+        "idx": 79,
+        "name": "functional_1/gru_1/unstack1",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 112,
+        "name": "functional_1/gru_1/gru_cell_3/MatMul;functional_1/gru_1/gru_cell_3/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 50,
+      "input": {
+        "idx": 80,
+        "name": "functional_1/gru_1/unstack2",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 116,
+        "name": "functional_1/gru_1/gru_cell_5/MatMul;functional_1/gru_1/gru_cell_5/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 52,
+      "input": {
+        "idx": 81,
+        "name": "functional_1/gru_1/unstack3",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 120,
+        "name": "functional_1/gru_1/gru_cell_7/MatMul;functional_1/gru_1/gru_cell_7/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 54,
+      "input": {
+        "idx": 82,
+        "name": "functional_1/gru_1/unstack4",
+        "shape": [
+          1,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 26,
+        "name": "arith.constant24",
+        "shape": [
+          384,
+          80
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 9,
+        "name": "arith.constant7",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 124,
+        "name": "functional_1/gru_1/gru_cell_9/MatMul;functional_1/gru_1/gru_cell_9/BiasAdd",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 56,
+      "input": {
+        "idx": 1,
+        "name": "serving_default_1_state_input:0",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 128,
+        "name": "functional_1/gru_1/gru_cell_1/MatMul_1;functional_1/gru_1/gru_cell_1/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 71,
+      "input": {
+        "idx": 142,
+        "name": "functional_1/gru_1/gru_cell_1/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 143,
+        "name": "functional_1/gru_1/gru_cell_3/MatMul_1;functional_1/gru_1/gru_cell_3/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 86,
+      "input": {
+        "idx": 157,
+        "name": "functional_1/gru_1/gru_cell_3/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 158,
+        "name": "functional_1/gru_1/gru_cell_5/MatMul_1;functional_1/gru_1/gru_cell_5/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 101,
+      "input": {
+        "idx": 172,
+        "name": "functional_1/gru_1/gru_cell_5/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 173,
+        "name": "functional_1/gru_1/gru_cell_7/MatMul_1;functional_1/gru_1/gru_cell_7/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 116,
+      "input": {
+        "idx": 187,
+        "name": "functional_1/gru_1/gru_cell_7/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 188,
+        "name": "functional_1/gru_1/gru_cell_9/MatMul_1;functional_1/gru_1/gru_cell_9/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 131,
+      "input": {
+        "idx": 202,
+        "name": "functional_1/gru_1/gru_cell_9/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 203,
+        "name": "functional_1/gru_1/gru_cell_11/MatMul_1;functional_1/gru_1/gru_cell_11/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 146,
+      "input": {
+        "idx": 217,
+        "name": "functional_1/gru_1/gru_cell_11/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 218,
+        "name": "functional_1/gru_1/gru_cell_13/MatMul_1;functional_1/gru_1/gru_cell_13/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 161,
+      "input": {
+        "idx": 232,
+        "name": "functional_1/gru_1/gru_cell_13/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 233,
+        "name": "functional_1/gru_1/gru_cell_15/MatMul_1;functional_1/gru_1/gru_cell_15/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 176,
+      "input": {
+        "idx": 247,
+        "name": "functional_1/gru_1/gru_cell_15/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 248,
+        "name": "functional_1/gru_1/gru_cell_17/MatMul_1;functional_1/gru_1/gru_cell_17/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 191,
+      "input": {
+        "idx": 262,
+        "name": "functional_1/gru_1/gru_cell_17/add_4",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 25,
+        "name": "arith.constant23",
+        "shape": [
+          384,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 8,
+        "name": "arith.constant6",
+        "shape": [
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 263,
+        "name": "functional_1/gru_1/gru_cell_19/MatMul_1;functional_1/gru_1/gru_cell_19/add",
+        "shape": [
+          1,
+          384
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    },
+    {
+      "index": 206,
+      "input": {
+        "idx": 277,
+        "name": "StatefulPartitionedCall_1:1",
+        "shape": [
+          1,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "weights": {
+        "idx": 24,
+        "name": "arith.constant22",
+        "shape": [
+          9,
+          128
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "bias": {
+        "idx": 7,
+        "name": "arith.constant5",
+        "shape": [
+          9
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      },
+      "output": {
+        "idx": 278,
+        "name": "functional_1/fc_1/MatMul;functional_1/fc_1/BiasAdd",
+        "shape": [
+          1,
+          9
+        ],
+        "type": "FLOAT32",
+        "quant_scale": [],
+        "quant_zero": []
+      }
+    }
+  ],
+  "top_buffers": [
+    {
+      "index": 26,
+      "size_bytes": 196608
+    },
+    {
+      "index": 27,
+      "size_bytes": 122880
+    },
+    {
+      "index": 23,
+      "size_bytes": 8192
+    },
+    {
+      "index": 20,
+      "size_bytes": 5376
+    },
+    {
+      "index": 25,
+      "size_bytes": 4608
+    },
+    {
+      "index": 21,
+      "size_bytes": 2816
+    },
+    {
+      "index": 24,
+      "size_bytes": 2048
+    },
+    {
+      "index": 9,
+      "size_bytes": 1536
+    },
+    {
+      "index": 10,
+      "size_bytes": 1536
+    },
+    {
+      "index": 22,
+      "size_bytes": 768
+    }
+  ]
+}
