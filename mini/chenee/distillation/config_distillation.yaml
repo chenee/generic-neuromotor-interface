@@ -1,0 +1,72 @@
+# 知识蒸馏训练配置
+
+# ============ 模型路径 ============
+teacher_checkpoint: "../../../../../logs/best_discrete_gestures.pt"  # Teacher模型权重
+
+# ============ 数据配置 ============
+data_dir: "/path/to/emg_data"          # 修改为你的数据目录
+split_csv: "/path/to/split.csv"        # 修改为你的划分文件
+
+# ============ 训练超参数 ============
+batch_size: 16
+max_epochs: 100
+learning_rate: 0.001
+
+# 学习率调度
+lr_scheduler_milestones: [60, 80]     # 在第60和80轮降低学习率
+lr_scheduler_factor: 0.1              # 每次降低到原来的0.1
+
+# Warmup配置
+warmup_start_factor: 0.1
+warmup_end_factor: 1.0
+warmup_total_epochs: 5
+
+gradient_clip_val: 1.0
+
+# ============ 蒸馏参数 ============
+temperature: 3.0      # 蒸馏温度（推荐2-5）
+alpha: 0.5           # 蒸馏损失权重（0-1，推荐0.4-0.6）
+
+# ============ Student模型配置 ============
+student:
+  input_channels: 16
+  conv_output_channels: 128      # Teacher: 512
+  kernel_width: 21
+  stride: 10
+  lstm_hidden_size: 256          # Teacher: 512
+  lstm_num_layers: 2             # Teacher: 3
+  output_channels: 9
+
+# ============ 输出配置 ============
+output_dir: "./student_models"
+
+# ============ 硬件配置 ============
+gpus: 1
+num_workers: 4
+
+# ============ Callbacks ============
+early_stopping:
+  monitor: "val_loss"
+  patience: 15
+  mode: "min"
+
+checkpoint:
+  monitor: "val_loss"
+  mode: "min"
+  save_top_k: 3
+  save_last: true
+
+# ============ 实验配置（可选） ============
+# 不同的蒸馏策略
+
+# 策略1：保守（Teacher不够准确时）
+# temperature: 2.0
+# alpha: 0.3
+
+# 策略2：平衡（推荐默认）
+# temperature: 3.0
+# alpha: 0.5
+
+# 策略3：激进（Teacher很准确时）
+# temperature: 4.0
+# alpha: 0.7
