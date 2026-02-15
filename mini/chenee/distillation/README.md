@@ -31,6 +31,8 @@ distillation/
 
 ## 🏗️ 模型对比
 
+### 标准模型
+
 | 特性 | Teacher (Meta大模型) | Student (轻量级) | 压缩比 |
 |------|---------------------|-----------------|-------|
 | **Conv通道** | 512 | 128 | 4× |
@@ -38,6 +40,19 @@ distillation/
 | **LSTM隐藏单元** | 512 | 256 | 2× |
 | **总参数量** | ~650万 | ~60万 | **10%** |
 | **推理速度** | 基准 | ~3-4×加速 | - |
+
+### 🆕 超轻量级模型（ESP32适配）
+
+| 模型 | 参数量 | FP32 | INT8 | 推荐设备 |
+|------|--------|------|------|---------|
+| **ConvOnly** | 8万 | 320KB | **80KB** | ✅ ESP32 |
+| **TinyStudent** | 15万 | 600KB | 150KB | ESP32-S3 |
+| **GRUStudent** | 40万 | 1.6MB | 400KB | 树莓派 |
+
+**ESP32部署**:
+- 👉 模型对比: [MODEL_COMPARISON.md](MODEL_COMPARISON.md)
+- 👉 完整指南: [ESP32_DEPLOYMENT.md](ESP32_DEPLOYMENT.md)
+- 👉 模型源码: [ultra_light_models.py](ultra_light_models.py)
 
 ### 参数分解
 
